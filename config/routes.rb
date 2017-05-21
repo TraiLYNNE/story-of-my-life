@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  resources :important_dates
-  resources :chapters
-  resources :books
+
   # Root Path
   root 'welcome#home'
 
   # Devise
   devise_for :users
 
-  # Resources 
+  # Resources
+  resources :books
+  resources :chapters
+  resources :important_dates
 
 
   # Regular Routes
