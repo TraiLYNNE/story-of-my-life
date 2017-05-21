@@ -11,4 +11,8 @@
 <h2>Important Dates</h2>
 <%= link_to("Add Date", new_chapter_important_date_path(@chapter)) %>
 
+<% @chapter.important_dates.each do |date| %>
+  <p><%= date.date %> - <%= link_to(date.title, edit_important_date_path(date)) %></p>
+<% end %>
+
 <h2>Pages</h2>
