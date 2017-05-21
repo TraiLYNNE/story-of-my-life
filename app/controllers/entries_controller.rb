@@ -2,6 +2,9 @@ class EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
+  def show
+  end
+  
   def new
     @entry = Entry.new(page_id: params[:page_id])
   end
@@ -12,19 +15,10 @@ class EntriesController < ApplicationController
     if @entry.valid?
       @entry.save
 
-      redirect_to page_path(@entry.page)
+      redirect_to entry_path(@entry), alert: "Entry successfully created"
     else
       render :new
     end
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

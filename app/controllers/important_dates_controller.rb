@@ -12,7 +12,7 @@ class ImportantDatesController < ApplicationController
     if @idate.valid?
       @idate.save
 
-      redirect_to chapter_path(@idate.chapter)
+      redirect_to chapter_path(@idate.chapter), alert: "Date successfully created"
     else
       render :new
     end
@@ -23,7 +23,7 @@ class ImportantDatesController < ApplicationController
 
   def update
     if @idate.update(important_dates_params)
-      redirect_to chapter_path(@idate.chapter)
+      redirect_to chapter_path(@idate.chapter), alert: "Date successfully updated"
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class ImportantDatesController < ApplicationController
   def destroy
     @idate.destroy
 
-    redirect_to root_path
+    redirect_to root_path, alert: "Date successfully deleted"
   end
 
   private

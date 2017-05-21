@@ -1,3 +1,5 @@
+<%= link_to("Back to Book", book_path(@chapter.book)) %>
+
 <h1><%= @chapter.title %></h1>
 
 <%= link_to("Edit Chapter", edit_chapter_path(@chapter)) %>
@@ -11,8 +13,8 @@
 <h2>Important Dates</h2>
 <%= link_to("Add Date", new_chapter_important_date_path(@chapter)) %>
 
-<% @chapter.important_dates.each do |date| %>
-  <p><%= date.date %> - <%= link_to(date.title, edit_important_date_path(date)) %></p>
+<% @chapter.important_dates.order(:date).each do |date| %>
+  <p><%= date.date.strftime("%A, %B %d") %> - <%= link_to(date.title, edit_important_date_path(date)) %></p>
 <% end %>
 
 <h2>Pages</h2>

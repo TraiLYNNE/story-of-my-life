@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   def show
@@ -16,11 +16,11 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user = current_user
-    
+
     if @book.valid?
       @book.save
 
-      redirect_to book_path(@book)
+      redirect_to book_path(@book), alert: "Book successfully created"
     else
       render :new
     end
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-      redirect_to book_path(@book)
+      redirect_to book_path(@book), alert: "Book successfully updated"
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class BooksController < ApplicationController
   def destroy
     @book.destroy
 
-    redirect_to root_path
+    redirect_to root_path, alert: "Book successfully deleted"
   end
 
   private

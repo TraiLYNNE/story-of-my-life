@@ -21,7 +21,7 @@ class ChaptersController < ApplicationController
     if @chapter.valid?
       @chapter.save
 
-      redirect_to chapter_path(@chapter)
+      redirect_to chapter_path(@chapter), alert: "Chapter successfully created"
     else
       render :new
     end
@@ -32,7 +32,7 @@ class ChaptersController < ApplicationController
 
   def update
     if @chapter.update(chapter_params)
-      redirect_to chapter_path(@chapter)
+      redirect_to chapter_path(@chapter), alert: "Chapter successfully updated"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter.destroy
 
-    redirect_to root_path
+    redirect_to root_path, alert: "Chapter successfully deleted"
   end
 
   private

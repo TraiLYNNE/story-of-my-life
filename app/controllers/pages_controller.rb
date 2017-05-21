@@ -20,8 +20,8 @@ class PagesController < ApplicationController
 
     if @page.valid?
       @page.save
-      
-      redirect_to page_path(@page)
+
+      redirect_to page_path(@page), alert: "Page successfully created"
     else
       render :new
     end
@@ -32,7 +32,7 @@ class PagesController < ApplicationController
 
   def update
     if @page.update(page_params)
-      redirect_to page_path(@page)
+      redirect_to page_path(@page), alert: "Page successfully updated"
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
 
-    redirect_to root_path
+    redirect_to root_path, alert: "Page successfully deleted"
   end
 
   private

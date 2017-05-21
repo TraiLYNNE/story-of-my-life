@@ -1,4 +1,6 @@
-<h3>Page <%= @page.page_number %> - <%= @page.date %></h3>
+<%= link_to("Back to Chapter", chapter_path(@page.chapter)) %>
+
+<h3>Page <%= @page.page_number %> - <%= @page.date.strftime("%A, %B %d") %></h3>
 
 <div>
   <p><%= @page.quote %></p>
@@ -28,13 +30,8 @@
 
   <%= link_to("Add Entry", new_page_entry_path(@page)) %>
 
-  <% @page.entries.each do |e| %>
-    <div>
-      <h4>Time: <%= e.time %></h4>
-      <h4>Mood: <%= e.mood %></h4>
-
-      <h2>Content:</h2>
-      <p><%= e.content %></p>
-    </div>
-  <% end %>
+  <ul>
+    <% @page.entries.each do |e| %>
+      <li><%= link_to(e.created_at.strftime("%H:%M"), entry_path(e)) %>
+    <% end %>
 </div>

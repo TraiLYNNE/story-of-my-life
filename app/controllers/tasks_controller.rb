@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     if @task.valid?
       @task.save
 
-      redirect_to page_path(@task.page)
+      redirect_to page_path(@task.page), alert: "Task successfully created"
     else
       render :new
     end
