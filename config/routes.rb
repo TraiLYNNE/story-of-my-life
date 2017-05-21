@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :tasks
-  resources :entries
-  resources :pages
   # Root Path
   root 'welcome#home'
 
@@ -16,7 +13,13 @@ Rails.application.routes.draw do
   resources :chapters do
     resources :important_dates, only: [:new]
   end
+  resources :pages do
+    resources :entries
+    resources :tasks
+  end
   resources :important_dates
+  resources :tasks
+  resources :entries
 
 
   # Regular Routes
