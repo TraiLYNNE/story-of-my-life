@@ -17,6 +17,9 @@
 
 <div>
   <h2>Tasks:</h2>
+  <% @page.tasks.each do |t| %>
+    <p><%= t.name %></p>
+  <% end %>
 </div>
 
 <div>
