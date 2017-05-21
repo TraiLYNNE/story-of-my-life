@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :chapters
   end
   resources :chapters do
-    resources :important_dates
+    resources :important_dates, only: [:new]
   end
   resources :important_dates
 
