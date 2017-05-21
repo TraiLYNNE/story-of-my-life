@@ -37,6 +37,9 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    @page.destroy
+
+    redirect_to root_path
   end
 
   private

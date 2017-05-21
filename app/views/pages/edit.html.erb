@@ -34,3 +34,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= form_tag page_path(@page), method: :delete do %>
+  <%= submit_tag "Delete Page" %>
+<% end %>
