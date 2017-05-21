@@ -15,10 +15,12 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
+    @page.date = Date.today
+    @page.page_number = Date.today.yday
 
     if @page.valid?
       @page.save
-
+      
       redirect_to page_path(@page)
     else
       render :new

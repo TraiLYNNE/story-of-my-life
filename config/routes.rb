@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   resources :chapters do
     resources :important_dates, only: [:new]
+    resources :pages
   end
   resources :pages do
     resources :entries

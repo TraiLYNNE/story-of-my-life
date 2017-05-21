@@ -1,3 +1,3 @@
 class ImportantDate < ApplicationRecord
-  belongs_to :chapter
+  belongs_to :chapter, optional: true
 end

@@ -30,6 +30,7 @@
     <%= f.text_field :lesson_learned %>
   </div>
 
+  <p>Create Today's Tasks:</p>
   <%= f.fields_for :tasks do |t| %>
     <div class="field">
       <%= t.label :name %>
@@ -37,6 +38,7 @@
     </div>
   <% end %>
 
+  <p>Entry</p>
   <%= f.fields_for :entries do |e| %>
     <div class="field">
       <%= e.label :mood %>

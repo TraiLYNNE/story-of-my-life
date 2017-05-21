@@ -16,3 +16,10 @@
 <% end %>
 
 <h2>Pages</h2>
+  <%= link_to("Add Page", new_chapter_page_path(@chapter)) %>
+
+  <ul>
+    <% @chapter.pages.each do |page| %>
+      <li><%= link_to(page.page_number, page_path(page)) %></li>
+    <% end %>
+  </ul>
