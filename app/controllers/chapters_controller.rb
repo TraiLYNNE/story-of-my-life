@@ -16,13 +16,26 @@ class ChaptersController < ApplicationController
   end
 
   def create
-    @chapter = Chapter.new(book_id: params[:book_id])
+    @chapter = Chapter.new(chapter_params)
+
+    if @chapter.valid?
+      @chapter.save
+
+      redirect_to chapter_path(@chapter)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
+    if @chapter.update(chapter_params)
+      redirect_to chapter_path(@chapter)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -35,6 +48,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_params
-    params.require(:chapter).permit(:title, :main_focus, important_dates_attributes: [:date, :title])
+    params.require(:chapter).permit(:title, :main_focus, :book_id, important_dates_attributes: [:date, :title])
   end
 end

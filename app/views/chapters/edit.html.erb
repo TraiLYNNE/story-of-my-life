@@ -25,20 +25,6 @@
     <%= f.text_field :main_focus %>
   </div>
 
-  <p>Add Important Dates</p>
-  <%= f.fields_for :important_dates do |date| %>
-    <div>
-      <div>
-        <%= date.label :date %>
-        <%= date.date_select :date %>
-
-        <%= date.label :title %>
-        <%= date.text_field :title %>
-      </div>
-    </div>
-
-  <% end %>
-
   <div class="action">
     <%= f.submit %>
   </div>
