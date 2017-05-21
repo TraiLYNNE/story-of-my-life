@@ -29,6 +29,11 @@ class PagesController < ApplicationController
   end
 
   def update
+    if @page.update(page_params)
+      redirect_to page_path(@page)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -38,5 +43,9 @@ class PagesController < ApplicationController
 
   def set_page
     @page = Page.find(params[:id])
+  end
+
+  def page_params
+    params.require(:page).permit(:chapter_id, :quote, :thank_you, :lesson_learned, tasks_attributes: [:name], entries_attributes: [:mood, :content])
   end
 end
