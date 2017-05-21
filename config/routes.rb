@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Resources
-  resources :books
-  resources :chapters
+  resources :books do
+    resources :chapters
+  end
+  resources :chapters do
+    resources :important_dates
+  end
   resources :important_dates
 
 
