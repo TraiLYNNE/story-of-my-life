@@ -1,2 +1,17 @@
-<h1>Welcome#home</h1>
-<p>Find me in app/views/welcome/home.html.erb</p>
+<div class="message">
+  <% if !!current_user %>
+    <% if Time.now.hour < 12 %>
+      <h1> Good Morning, <%= current_user.name %></h1>
+    <% else %>
+      <h1>Good Afternoon, <%= current_user.name %></h1>
+    <% end %>
+  <% else %>
+    <h1>Welcome</h1>
+  <% end %>
+</div>
+
+<div>
+  <h2>When Writing The Story Of Your Life,</h2>
+  <h2>Don't Let Anyone Else Hold The Pen</h2>
+  <h4>~Unknown</h4>
+</div>
