@@ -3,6 +3,7 @@ class ImportantDatesController < ApplicationController
   before_action :set_idate, only: [:show, :edit, :update, :destroy]
 
   def index
+    @idates = ImportantDate.all
   end
 
   def show
