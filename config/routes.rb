@@ -8,19 +8,19 @@ Rails.application.routes.draw do
 
   # Resources
   resources :books do
-    resources :chapters
+    resources :chapters, only: [:new]
   end
-  resources :chapters do
+  resources :chapters, except: [:index] do
     resources :important_dates, only: [:new]
-    resources :pages
+    resources :pages, only: [:new]
   end
-  resources :pages do
-    resources :entries
-    resources :tasks
+  resources :pages, except: [:index] do
+    resources :entries, only: [:new]
+    resources :tasks, only: [:new]
   end
-  resources :important_dates
-  resources :tasks
-  resources :entries
+  resources :important_dates, except: [:index, :show]
+  resources :tasks, only: [:create, :edit, :update]
+  resources :entries, except: [:index]
 
 
   # Regular Routes
