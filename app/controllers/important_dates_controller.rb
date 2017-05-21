@@ -30,6 +30,9 @@ class ImportantDatesController < ApplicationController
   end
 
   def destroy
+    @idate.destroy
+
+    redirect_to root_path
   end
 
   private

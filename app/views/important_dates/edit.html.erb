@@ -1,1 +1,5 @@
 <%= render 'form' %>
+
+<%= form_tag important_date_path(@idate), method: :delete do %>
+  <%= submit_tag "Delete Date" %>
+<% end %>
