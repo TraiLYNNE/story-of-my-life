@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :tasks
+  resources :entries
+  resources :pages
   # Root Path
   root 'welcome#home'
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170521152406) do
+ActiveRecord::Schema.define(version: 20170521170708) do
 
   create_table "books", force: :cascade do |t|
     t.string   "title"
@@ -28,12 +28,40 @@ ActiveRecord::Schema.define(version: 20170521152406) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "entries", force: :cascade do |t|
+    t.datetime "time"
+    t.string   "mood"
+    t.text     "content"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "important_dates", force: :cascade do |t|
     t.string   "title"
     t.datetime "date"
     t.integer  "chapter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.integer  "page_number"
+    t.datetime "date"
+    t.string   "quote"
+    t.string   "thank_you"
+    t.string   "lesson_learned"
+    t.integer  "chapter_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "complete",   default: false
+    t.integer  "page_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
