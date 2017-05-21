@@ -22,6 +22,11 @@ class ImportantDatesController < ApplicationController
   end
 
   def update
+    if @idate.update(important_dates_params)
+      redirect_to chapter_path(@idate.chapter)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -31,5 +36,9 @@ class ImportantDatesController < ApplicationController
 
   def set_idate
     @idate = ImportantDate.find(params[:id])
+  end
+
+  def important_dates_params
+    params.require(:important_date).permit(:title, :date, :chapter_id)
   end
 end
