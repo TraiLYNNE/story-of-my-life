@@ -10,9 +10,13 @@ class ChaptersController < ApplicationController
   end
 
   def new
+    @chapter = Chapter.new(book_id: params[:book_id])
+
+    4.times {@chapter.important_dates.build}
   end
 
   def create
+    @chapter = Chapter.new(book_id: params[:book_id])
   end
 
   def edit
@@ -28,5 +32,9 @@ class ChaptersController < ApplicationController
 
   def set_chapter
     @chapter = Chapter.find(params[:id])
+  end
+
+  def chapter_params
+    params.require(:chapter).permit(:title, :main_focus, important_dates_attributes: [:date, :title])
   end
 end
