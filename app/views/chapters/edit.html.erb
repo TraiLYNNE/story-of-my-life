@@ -29,3 +29,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= form_tag chapter_path(@chapter), method: :delete do %>
+  <%= submit_tag "Delete Chapter" %>
+<% end %>
