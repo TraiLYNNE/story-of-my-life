@@ -1,6 +1,32 @@
 class BooksController < ApplicationController
-  belongs_to :user
+  before_action :authenticate_user!
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-  has_many :chapters
-  has_many :pages, through: :chapters
+  def index
+    @books = Book.all
+  end
+
+  def show
+  end
+
+  def new
+  end
+
+  def create
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+
+  def set_book
+    @book = Book.find(params[:id])
+  end
 end
