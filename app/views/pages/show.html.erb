@@ -1,0 +1,36 @@
+<h3>Page <%= @page.page_number %> - <%= @page.date.strftime("%A, %B %d") %></h3>
+
+<div>
+  <p><%= @page.quote %></p>
+</div>
+
+<%= link_to("Edit Page", edit_page_path(@page)) %>
+<div>
+  <h3>Thank you for...</h3>
+  <p><%= @page.thank_you %></p>
+</div>
+
+<div>
+  <h2>Today's Lesson:</h2>
+  <p><%= @page.lesson_learned %>
+</div>
+
+<div>
+  <h2>Tasks:</h2>
+</div>
+
+<div>
+  <h2>Entries:</h2>
+
+  <%= link_to("Add Entry", new_page_entry_path(@page)) %>
+
+  <% @page.entries.each do |e| %>
+    <div>
+      <h4>Time: <%= e.time %></h4>
+      <h4>Mood: <%= e.mood %></h4>
+
+      <h2>Content:</h2>
+      <p><%= e.content %></p>
+    </div>
+  <% end %>
+</div>
