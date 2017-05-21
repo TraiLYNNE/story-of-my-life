@@ -17,6 +17,7 @@
 
 <div>
   <h2>Tasks:</h2>
+  <%= link_to("Add Task", new_page_task_path(@page)) %>
   <% @page.tasks.each do |t| %>
     <p><%= t.name %></p>
   <% end %>
