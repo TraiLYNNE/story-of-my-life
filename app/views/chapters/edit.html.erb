@@ -1,36 +1,6 @@
-<%= form_for(@chapter) do |f| %>
+<h2>Edit Chapter</h2>
 
-  <% if @chapter.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@chapter.errors.count, "error") %> prohibited the creation of this chapter:
-      </h2>
-
-      <ul>
-        <% @chapter.errors.full_messages.each do |m| %>
-          <li><%= m %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.hidden_field :book_id %>
-
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-
-  <div>
-    <%= f.label :main_focus %>
-    <%= f.text_field :main_focus %>
-  </div>
-
-
-  <div class="action">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
 
 <%= form_tag chapter_path(@chapter), method: :delete do %>
   <%= submit_tag "Delete Chapter" %>

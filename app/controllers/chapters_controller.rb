@@ -47,6 +47,6 @@ class ChaptersController < ApplicationController
   end
 
   def chapter_params
-    params.require(:chapter).permit(:title, :main_focus, :book_id, important_dates_attributes: [:date, :title])
+    params.require(:chapter).permit(:title, :main_focus, :book_id, important_dates_attributes: [:id, :date, :title])
   end
 end

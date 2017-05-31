@@ -51,6 +51,6 @@ class PagesController < ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:chapter_id, :quote, :thank_you, :lesson_learned, tasks_attributes: [:name], entries_attributes: [:mood, :content])
+    params.require(:page).permit(:chapter_id, :quote, :thank_you, :lesson_learned, tasks_attributes: [:id, :name], entries_attributes: [:id, :mood, :content])
   end
 end
