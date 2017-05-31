@@ -15,8 +15,6 @@ class PagesController < ApplicationController
 
   def create
     @page = Page.new(page_params)
-    @page.date = Date.today
-    @page.page_number = Date.today.yday
 
     if @page.valid?
       @page.save
@@ -41,7 +39,7 @@ class PagesController < ApplicationController
   def destroy
     @page.destroy
 
-    redirect_to root_path, alert: "Page successfully deleted"
+    redirect_to chapter_path(@page.chapter), alert: "Page successfully deleted"
   end
 
   private

@@ -29,13 +29,11 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to page_path(@task.page)
+
+      redirect_to page_path(@task.page), alert: "Task successfully updated"
     else
       render :edit
     end
-  end
-
-  def destroy
   end
 
   private

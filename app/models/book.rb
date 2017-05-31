@@ -8,8 +8,6 @@ class Book < ApplicationRecord
   # Validations
   validates_presence_of :title, :quote
 
-  # Class Methods
-
   # Instance Methods
   def author
     self.user.name

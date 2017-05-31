@@ -32,7 +32,7 @@ class ImportantDatesController < ApplicationController
   def destroy
     @idate.destroy
 
-    redirect_to root_path, alert: "Date successfully deleted"
+    redirect_to chapter_path(@idate.chapter), alert: "Date successfully deleted"
   end
 
   private

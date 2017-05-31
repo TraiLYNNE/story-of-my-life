@@ -37,7 +37,7 @@ class ChaptersController < ApplicationController
   def destroy
     @chapter.destroy
 
-    redirect_to root_path, alert: "Chapter successfully deleted"
+    redirect_to book_path(@chapter.book), alert: "Chapter successfully deleted"
   end
 
   private
