@@ -7,6 +7,6 @@
 <p><%= @entry.content %></p>
 
 
-<%= form_tag page_path(@entry), method: :delete do %>
+<%= form_tag entry_path(@entry), method: :delete do %>
   <%= submit_tag "Delete Entry" %>
 <% end %>
