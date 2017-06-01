@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :tasks, only: [:new]
   end
   resources :important_dates, except: [:index, :show]
-  resources :tasks, only: [:create, :edit, :update]
+  resources :tasks, only: [:create, :edit, :update, :destroy]
   resources :entries, only: [:create, :show, :destroy]
 
 

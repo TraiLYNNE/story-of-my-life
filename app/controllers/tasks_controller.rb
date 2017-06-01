@@ -35,6 +35,12 @@ class TasksController < ApplicationController
       render :edit
     end
   end
+  
+  def destroy
+    @task.destroy
+
+    redirect_to page_path(@task.page), alert: "Task successfully deleted"
+  end
 
   private
 
