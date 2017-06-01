@@ -10,16 +10,21 @@ Rails.application.routes.draw do
   resources :books do
     resources :chapters, only: [:new]
   end
+  
   resources :chapters, except: [:index] do
     resources :important_dates, only: [:new]
     resources :pages, only: [:new]
   end
+  
   resources :pages, except: [:index] do
     resources :entries, only: [:new]
     resources :tasks, only: [:new]
   end
+  
   resources :important_dates, except: [:index, :show]
+  
   resources :tasks, only: [:create, :destroy]
+  
   resources :entries, only: [:create, :show, :destroy]
 
 
