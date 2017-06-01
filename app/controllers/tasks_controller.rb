@@ -1,9 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
 
-  def show
-  end
-
   def new
     @task = Task.new(page_id: params[:page_id])
   end
