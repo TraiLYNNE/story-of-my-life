@@ -20,6 +20,12 @@ class EntriesController < ApplicationController
       render :new
     end
   end
+  
+  def destroy
+    @entry.destroy
+
+    redirect_to page_path(@entry.page), alert: "Entry successfully deleted"
+  end
 
   private
 
