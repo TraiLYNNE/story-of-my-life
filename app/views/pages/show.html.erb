@@ -1,7 +1,7 @@
 <p><%= link_to("Back to Chapter", chapter_path(@page.chapter)) %></p>
 <p><%= link_to("Edit Page", edit_page_path(@page)) %></p>
 
-<h3>Page <%= @page.page_number %> - <%= @page.date.strftime("%A, %B %d") %></h3>
+<h3>Page <%= @page.page_number %> - <%= @page.date %></h3>
 
 <div>
   <p><%= @page.quote %></p>

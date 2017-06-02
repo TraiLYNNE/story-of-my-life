@@ -11,7 +11,7 @@ class Page < ApplicationRecord
   accepts_nested_attributes_for :entries, reject_if: proc { |att| att['content'].blank?}
 
   def date
-    self.created_at
+    self.created_at.strftime("%A, %B %d")
   end
 
   def page_number
