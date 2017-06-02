@@ -17,4 +17,13 @@ class Page < ApplicationRecord
   def page_number
     self.created_at.yday
   end
+  
+  def self.random_quote
+    quotes = self.all.map{|p| p.quote}
+    l = quotes.length
+    i = rand(0..l)
+    return quotes[i]
+  end
+  
+  
 end
